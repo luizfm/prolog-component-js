@@ -1,0 +1,15 @@
+import { Theme } from './theme/theme.component';
+import { Meta } from "@storybook/blocks";
+import { ThemeProvider } from "@mui/material";
+import { globalTheme } from '../../styles/theme/theme';
+
+
+
+
+<Meta title="Prolog Theme" />
+
+<ThemeProvider theme={globalTheme}>
+    <div className="sb-unstyled">
+        <Theme />
+    </div>
+</ThemeProvider>
