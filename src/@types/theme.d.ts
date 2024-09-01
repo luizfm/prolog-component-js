@@ -3,7 +3,7 @@ import "@mui/material";
 import "@mui/material/Typography";
 
 declare module "@mui/material" {
-  interface Theme {
+  export interface Theme {
     shape: {
       borderRadius: {
         sm: number;
@@ -14,7 +14,7 @@ declare module "@mui/material" {
     };
   }
 
-  interface Palette {
+  export interface Palette {
     dsGrey: {
       light: string;
       soft: string;
@@ -44,18 +44,18 @@ declare module "@mui/material" {
 }
 
 declare module "@mui/material/styles" {
-  interface TypographyVariants {
+  export interface TypographyVariants {
     fontFamilySecondary: React.CSSProperties["fontFamily"];
     fontWeightSemiBold: React.CSSProperties["fontWeight"];
   }
 
   // allow configuration using `createTheme`
-  interface TypographyVariantsOptions {
+  export interface TypographyVariantsOptions {
     fontFamilySecondary?: React.CSSProperties["fontFamily"];
     fontWeightSemiBold?: React.CSSProperties["fontWeight"];
   }
 
-  interface PaletteColor {
+  export interface PaletteColor {
     light?: string;
     soft?: string;
     normal?: string;
@@ -63,7 +63,7 @@ declare module "@mui/material/styles" {
     main?: string;
   }
 
-  interface SimplePaletteColorOptions {
+  export interface SimplePaletteColorOptions {
     light?: string;
     soft?: string;
     normal?: string;
@@ -71,7 +71,7 @@ declare module "@mui/material/styles" {
     main?: string;
   }
 
-  interface PaletteOptions {
+  export interface PaletteOptions {
     dsGrey: {
       light: string;
       soft: string;
@@ -99,7 +99,7 @@ declare module "@mui/material/styles" {
     };
   }
 
-  interface ThemeOptions {
+  export interface ThemeOptions {
     shape: {
       borderRadius: {
         sm: number;
@@ -113,14 +113,14 @@ declare module "@mui/material/styles" {
 
 // Update the Typography's variant prop options
 declare module "@mui/material/Typography" {
-  interface TypographyPropsVariantOverrides {
+  export interface TypographyPropsVariantOverrides {
     fontFamilySecondary: true;
     fontWeightSemiBold: true;
   }
 }
 
 declare module "@mui/material/Button" {
-  interface ButtonPropsColorOverrides {
+  export interface ButtonPropsColorOverrides {
     primaryDark: true;
   }
 }

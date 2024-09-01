@@ -14,7 +14,7 @@ import { useStyles } from "./select.styles";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import clsx from "clsx";
 
-interface SelectOption {
+export interface SelectOption {
   label: string | React.ReactNode;
   value: string;
 }
@@ -25,6 +25,8 @@ export interface DSSelectProps extends Omit<SelectProps, "value" | "onChange"> {
   startAdornment?: React.ReactNode;
   error?: boolean;
   helperText?: string;
+  selectedValue: string;
+  onChange: (event: SelectChangeEvent<string>) => void;
 }
 
 export function DSSelect({
@@ -33,19 +35,16 @@ export function DSSelect({
   startAdornment,
   error,
   helperText,
+  selectedValue,
+  onChange,
   ...restSelectProps
 }: DSSelectProps) {
   const classes = useStyles();
 
   const [isOpen, setIsOpen] = useState(false);
-  const [selectValue, setSelectedValue] = useState("");
 
   const onToggleVisibility = () => {
     setIsOpen((prevValue) => !prevValue);
-  };
-
-  const handleChange = (event: SelectChangeEvent<string>) => {
-    setSelectedValue(event.target.value as string);
   };
 
   return (
@@ -57,7 +56,7 @@ export function DSSelect({
       <Select
         data-testid="ds-select"
         className={classes.select}
-        value={selectValue}
+        value={selectedValue}
         onOpen={onToggleVisibility}
         onClose={onToggleVisibility}
         displayEmpty
@@ -88,7 +87,7 @@ export function DSSelect({
           }
           return options.find((option) => option.value === value)?.label;
         }}
-        onChange={handleChange}
+        onChange={onChange}
         input={
           <Input
             {...(startAdornment && {
@@ -126,3 +125,5 @@ export function DSSelect({
     </FormControl>
   );
 }
+
+export default DSSelect;

@@ -15,3 +15,5 @@ export function DSTag({ label }: DSTagProps) {
     </Typography>
   );
 }
+
+export default DSTag;

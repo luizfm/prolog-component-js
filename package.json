@@ -1,11 +1,24 @@
 {
   "name": "prolog-component-js",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.15",
   "type": "module",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/types/index.d.cts"
+    }
+  },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build:types": "tsup src/index.ts --dts-only --out-dir dist/types --tsconfig tsconfig.app.json",
+    "build": "tsc -b && vite build && npm run build:types",
     "lint": "eslint .",
     "test": "vitest",
     "test:coverage": "vitest --coverage",
@@ -23,7 +36,8 @@
     "@vitest/ui": "^2.0.5",
     "clsx": "^2.1.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "tsup": "^8.2.4"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.8.0",
@@ -55,6 +69,7 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1",
+    "vite-plugin-dts": "^4.0.3",
     "vitest": "^2.0.5"
   },
   "eslintConfig": {

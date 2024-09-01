@@ -41,3 +41,4 @@ export const DSInput = forwardRef<HTMLInputElement, DSInputProps>(
 );
 
 DSInput.displayName = "DSInput";
+export default DSInput;

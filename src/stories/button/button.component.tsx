@@ -18,6 +18,7 @@ export function DSButton({
   className,
   children,
   disabled,
+  ...restButtonProps
 }: DSButtonProps) {
   const classes = useStyles();
   const typedSize = size as keyof typeof classes;
@@ -34,8 +35,11 @@ export function DSButton({
       )}
       disableRipple
       disabled={disabled}
+      {...restButtonProps}
     >
       <Typography component="span">{children}</Typography>
     </Button>
   );
 }
+
+export default DSButton;

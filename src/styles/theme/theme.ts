@@ -3,7 +3,7 @@ import { customWeights } from "./custom-weights";
 import { palette } from "./colors";
 import { fontSizes } from "./custom-typography-tag";
 
-export const globalTheme = createTheme({
+export const theme = {
   shape: {
     borderRadius: {
       sm: 4,
@@ -35,4 +35,6 @@ export const globalTheme = createTheme({
     },
   },
   palette,
-});
+};
+
+export const globalTheme = createTheme(theme);

@@ -1,9 +1,11 @@
+import React from "react";
+
 import { render, RenderOptions } from "@testing-library/react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { globalTheme } from "../styles/theme/theme";
 import { ReactElement } from "react";
 
-interface WrapperProps {
+export interface WrapperProps {
   children: React.ReactNode;
 }
 

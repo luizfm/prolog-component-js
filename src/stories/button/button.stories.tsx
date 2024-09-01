@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import { DSButton } from "./button.component";
 import TireRepairIcon from "@mui/icons-material/TireRepair";
+import DSButton from "./button.component";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
