@@ -1,4 +1,5 @@
-import { describe, expect, it } from "vitest";
+import React from "react";
+import { describe, expect, it, vi } from "vitest";
 import { DSSelect, DSSelectProps } from "./select.component";
 import { renderWithWrapper } from "../../test/wrapper";
 import { fireEvent } from "@testing-library/react";
@@ -9,6 +10,8 @@ const defaultProps: DSSelectProps = {
     { label: "Option 1", value: "option1" },
     { label: "Option 2", value: "option2" },
   ],
+  selectedValue: "",
+  onChange: vi.fn(),
   placeholder: "Select an option",
 };
 
@@ -44,9 +47,17 @@ describe("Component: DSSelect", () => {
     const firstOption = screen.getByText("Option 1");
     fireEvent.click(firstOption);
 
-    const placeholder = screen.queryAllByText("Select an option");
+    expect(defaultProps.onChange).toHaveBeenCalledTimes(1);
+  });
 
-    expect(placeholder).toHaveLength(0);
+  it("should start with an option selected", () => {
+    const screen = renderWithWrapper(
+      <DSSelect {...defaultProps} selectedValue="option1" />
+    );
+
+    const selectedLabel = screen.getByText("Option 1");
+
+    expect(selectedLabel).toBeInTheDocument();
   });
 
   it("should render start adornment", () => {

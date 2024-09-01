@@ -32,6 +32,8 @@ export default defineConfig({
     coverage: {
       provider: "istanbul",
       exclude: [
+        "./vite.config.ts",
+        "./dist",
         "**/*.stories.tsx",
         "./.storybook/**/*",
         "./src/stories/presentation/**/*",
