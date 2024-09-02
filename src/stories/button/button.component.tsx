@@ -8,6 +8,7 @@ export interface DSButtonProps extends Omit<ButtonProps, "color"> {
   variant?: "text" | "outlined" | "contained";
   size?: "large" | "small";
   className?: string;
+  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   children: React.ReactNode | string;
 }
 
@@ -15,6 +16,7 @@ export function DSButton({
   icon,
   variant = "contained",
   size = "large",
+  onClick,
   className,
   children,
   disabled,
@@ -35,6 +37,7 @@ export function DSButton({
       )}
       disableRipple
       disabled={disabled}
+      onClick={onClick}
       {...restButtonProps}
     >
       <Typography component="span">{children}</Typography>
