@@ -5,6 +5,7 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 const meta = {
   title: "Components/Input",
   component: DSInput,
+  tags: ["autodocs"],
 } satisfies Meta<typeof DSInput>;
 
 export default meta;
